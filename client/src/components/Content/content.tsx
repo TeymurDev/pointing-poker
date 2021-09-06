@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { DatePicker } from 'antd';
+import { DatePicker, Button } from 'antd';
 import contentCSS from './content.module.css';
 import img from '../../assets/logo.svg';
 
@@ -16,6 +16,7 @@ const Content: FC = () => {
       <button type='button' className={contentCSS.btn}>
         Buy now
       </button>
+      <Button />
       <div>
         <DatePicker />
       </div>
