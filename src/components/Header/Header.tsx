@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import headerCSS from './header.module.css';
+import headerCSS from './Header.module.css';
 
 const Header: FC = () => {
   return (

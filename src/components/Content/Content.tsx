@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { DatePicker, Button } from 'antd';
-import contentCSS from './content.module.css';
+import contentCSS from './Content.module.css';
 import img from '../../assets/logo.svg';
 
 const Content: FC = () => {
