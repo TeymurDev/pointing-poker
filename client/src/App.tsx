@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import './App.css';
-import Header from './components/Header/header';
-import Content from './components/Content/content';
+import Header from './components/Header/Header';
+import MainPage from './Pages/MainPage/MainPage';
 
 const App: FC = () => {
   return (
-    <div className='container'>
+    <div>
       <Header />
-      <Content />
+      <MainPage />
     </div>
   );
 };

@@ -1,13 +1,18 @@
 import { FC } from 'react';
-import headerCSS from './header.module.css';
+import styles from './Header.module.css';
 
 const Header: FC = () => {
   return (
-    <header className='card'>
-      <h1>Main title</h1>
-      <button type='button' className={headerCSS.btn}>
-        Buy now
-      </button>
+    <header className={styles.mainheader}>
+      <div className={styles.blue}> </div>
+      <div className={styles.green}> </div>
+      <img
+        className={styles.logo}
+        src='/pplogo.svg'
+        alt='headerlogo'
+        width='70'
+        height='70'
+      />
     </header>
   );
 };
