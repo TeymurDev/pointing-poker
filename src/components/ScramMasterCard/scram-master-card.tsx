@@ -2,17 +2,17 @@ import Space from 'antd/lib/space';
 import Avatar from 'antd/lib/avatar/avatar';
 import Typography from 'antd/lib/typography';
 import { UserOutlined } from '@ant-design/icons';
-import scramMasterCardCSS from './scram-master-card.module.css';
+import styles from './scram-master-card.module.css';
 
 const { Text } = Typography;
 
-interface ScramMasterCardInfo {
+type ScramMasterCardInfo = {
   id: string;
   firstName: string;
   lastName: string;
   position: string;
   image: string;
-}
+};
 
 const ScramMasterCard = ({
   id,
@@ -23,19 +23,19 @@ const ScramMasterCard = ({
 }: ScramMasterCardInfo) => {
   return (
     <div>
-      <Space size={15} align='center' className={scramMasterCardCSS.container}>
+      <Space size={15} align='center' className={styles.container}>
         <Avatar
           size={50}
           src={image}
           icon={<UserOutlined />}
-          className={scramMasterCardCSS.avatar}
+          className={styles.avatar}
         />
-        <div className={scramMasterCardCSS.textContainer}>
-          {/* <Text className={scramMasterCardCSS.textPertain}>It&apos;s you</Text> */}
-          <Text className={scramMasterCardCSS.textName}>
+        <div className={styles.textContainer}>
+          {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
+          <Text className={styles.textName}>
             {firstName} {lastName} {id}
           </Text>
-          <Text className={scramMasterCardCSS.textPost}>{position}</Text>
+          <Text className={styles.textPost}>{position}</Text>
         </div>
       </Space>
     </div>
