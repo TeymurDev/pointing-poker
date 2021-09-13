@@ -15,6 +15,7 @@
 .textContainer {
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 
 .textPertain {
