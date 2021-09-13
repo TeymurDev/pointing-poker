@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { Button } from 'antd';
+import { Button, Typography } from 'antd';
 import styles from './MainPage.module.css';
+
+const { Text } = Typography;
 
 const MainPage: FC = () => {
   return (
@@ -13,15 +15,44 @@ const MainPage: FC = () => {
           width='550'
           height='149'
         />
-        <span className={styles.plantext}>Start your planning:</span>
+        <Text
+          style={{
+            marginTop: '40px',
+            marginRight: '517px',
+            fontSize: '48px',
+            color: '#66999b',
+            fontWeight: 700,
+          }}>
+          Start your planning:
+        </Text>
         <div className={styles.sessioncontainer}>
-          <span className={styles.createsession}>Create session:</span>
-          <Button type='primary'>Start new Game</Button>
+          <Text
+            style={{ marginRight: '100px', fontWeight: 300, fontSize: '24px' }}>
+            Create session:
+          </Text>
+          <Button type='primary'>Start new game</Button>
         </div>
-        <span className={styles.or}>OR:</span>
+        <Text
+          style={{
+            marginTop: '45px',
+            marginRight: '501px',
+            fontWeight: 700,
+            fontSize: '48px',
+            color: '#66999b',
+          }}>
+          OR:
+        </Text>
         <div className={styles.connecttocontainer}>
           <label className={styles.connectto} htmlFor='connect'>
-            Connect to lobby by <span className={styles.url}>URL:</span>
+            Connect to lobby by{' '}
+            <Text
+              style={{
+                fontWeight: 700,
+                color: '#66999b',
+                marginLeft: '7px',
+              }}>
+              URL:
+            </Text>
             <input
               className={styles.connectinput}
               type='url'

@@ -15,38 +15,11 @@
   margin-top: 120px;
 }
 
-.plantext {
-  margin-top: 40px;
-  margin-right: 517px;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 56px;
-  color: #66999b;
-  line-height: 56px;
-}
-
 .sessioncontainer {
   display: flex;
   align-items: center;
   margin-top: 70px;
   margin-right: 541px;
-}
-
-.createsession {
-  margin-right: 100px;
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-.or {
-  margin-top: 45px;
-  margin-right: 501px;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 56px;
-  color: #66999b;
-  line-height: 56px;
 }
 
 .connecttocontainer {
@@ -61,12 +34,6 @@
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
-}
-
-.url {
-  font-weight: 700;
-  color: #66999b;
-  margin-left: 7px;
 }
 
 .connectinput {
