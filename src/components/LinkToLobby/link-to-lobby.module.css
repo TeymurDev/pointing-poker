@@ -1,0 +1,10 @@
+.container {
+  gap: 0 !important;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}
+
+.container input {
+  cursor: default;
+}
