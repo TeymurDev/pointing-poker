@@ -1,7 +1,4 @@
-import Space from 'antd/lib/space';
-import Button from 'antd/lib/button';
-import Avatar from 'antd/lib/avatar/avatar';
-import Typography from 'antd/lib/typography';
+import { Space, Button, Avatar, Typography } from 'antd';
 import { UserOutlined, StopOutlined } from '@ant-design/icons';
 import styles from './member-card.module.css';
 

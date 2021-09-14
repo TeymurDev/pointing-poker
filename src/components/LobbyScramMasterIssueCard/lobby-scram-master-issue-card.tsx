@@ -1,6 +1,4 @@
-import Space from 'antd/lib/space';
-import Button from 'antd/lib/button';
-import Typography from 'antd/lib/typography';
+import { Space, Button, Typography } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import styles from './lobby-scram-master-issue-card.module.css';
 
