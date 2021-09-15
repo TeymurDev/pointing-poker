@@ -4,13 +4,9 @@
   margin: 10px 0;
   padding: 0 10px;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
   border-radius: 5px;
-}
-
-.avatar {
-  background: #69c0ff;
 }
 
 .textContainer {
@@ -19,21 +15,20 @@
   cursor: default;
 }
 
-.textPertain {
-  font-size: x-small;
-  font-weight: bold;
-  font-family: 'Nunito';
-}
-
 .textName {
   font-size: large;
 }
 
-.textPost {
+.textPriority {
   font-size: x-small;
   font-family: 'Nunito';
 }
 
+.editButton svg {
+  font-size: 22px;
+}
+
 .deleteButton svg {
   font-size: 22px;
+  fill: rgb(223, 0, 0);
 }

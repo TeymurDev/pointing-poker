@@ -9,8 +9,8 @@
   border-radius: 5px;
 }
 
-.avatar {
-  background: #69c0ff;
+.containerCurrent {
+  background-color: #91d5ff;
 }
 
 .textContainer {
@@ -19,7 +19,7 @@
   cursor: default;
 }
 
-.textPertain {
+.textCurrent {
   font-size: x-small;
   font-weight: bold;
   font-family: 'Nunito';
@@ -29,11 +29,12 @@
   font-size: large;
 }
 
-.textPost {
+.textPriority {
   font-size: x-small;
   font-family: 'Nunito';
 }
 
 .deleteButton svg {
-  font-size: 22px;
+  font-size: 25px;
+  transform: rotate(45deg);
 }

@@ -1,6 +1,4 @@
-import Space from 'antd/lib/space';
-import Avatar from 'antd/lib/avatar/avatar';
-import Typography from 'antd/lib/typography';
+import { Space, Avatar, Typography } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import styles from './scram-master-card.module.css';
 
