@@ -35,6 +35,7 @@ module.exports = {
       },
     ],
     'no-use-before-define': 'off',
+    'no-console': 'off',
   },
   settings: {
     'import/resolver': {

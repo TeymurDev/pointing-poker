@@ -1,7 +1,8 @@
 import { FC, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Content from './components/Content/Content';
+import MainPage from './pages/MainPage/MainPage';
+import Footer from './components/Footer/Footer';
 import subscribeToConnection from './api';
 
 const App: FC = () => {
@@ -11,7 +12,8 @@ const App: FC = () => {
   return (
     <div className='container'>
       <Header />
-      <Content />
+      <MainPage />
+      <Footer />
     </div>
   );
 };
