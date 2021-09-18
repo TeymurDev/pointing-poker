@@ -9,7 +9,7 @@ const Header: FC = () => {
       <img
         className={styles.logo}
         src='/pplogo2.svg'
-        alt='headerlogo'
+        alt='logo'
         width='70'
         height='70'
       />

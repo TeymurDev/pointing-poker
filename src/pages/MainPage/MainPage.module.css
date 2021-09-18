@@ -19,11 +19,11 @@
   display: flex;
   align-items: center;
   margin-top: 70px;
-  margin-right: 541px;
+  margin-right: 569px;
 }
 
 .connecttocontainer {
-  margin-right: 193px;
+  margin-right: 229px;
 }
 
 .connectto {
@@ -40,4 +40,33 @@
   height: 32px;
   outline: none;
   margin-left: 100px;
+}
+
+.createsession.createsession {
+  margin-right: 100px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.or.or {
+  margin-top: 45px;
+  margin-right: 501px;
+  font-weight: 700;
+  font-size: 48px;
+  color: #69c0ff;
+}
+
+.url.url {
+  font-weight: 700;
+  color: #69c0ff;
+  margin-left: 7px;
+}
+
+.startplan.startplan {
+  margin-top: 40px;
+  margin-right: 517px;
+  font-size: 48px;
+  color: #40a9ff;
+  font-weight: 700;
+  letter-spacing: 2px;
 }

@@ -10,50 +10,20 @@ const MainPage: FC = () => {
       <section className={styles.mainpage}>
         <img
           className={styles.ppimage}
-          src='/planningpoker.png'
-          alt='pp'
+          src='/planningpokerlogo.png'
+          alt='logo'
           width='550'
           height='149'
         />
-        <Text
-          style={{
-            marginTop: '40px',
-            marginRight: '517px',
-            fontSize: '48px',
-            color: '#40a9ff',
-            fontWeight: 700,
-            letterSpacing: '2px',
-          }}>
-          Start your planning:
-        </Text>
+        <Text className={styles.startplan}>Start your planning:</Text>
         <div className={styles.sessioncontainer}>
-          <Text
-            style={{ marginRight: '100px', fontWeight: 300, fontSize: '24px' }}>
-            Create session:
-          </Text>
+          <Text className={styles.createsession}>Create session:</Text>
           <Button type='primary'>Start new game</Button>
         </div>
-        <Text
-          style={{
-            marginTop: '45px',
-            marginRight: '501px',
-            fontWeight: 700,
-            fontSize: '48px',
-            color: '#69c0ff',
-          }}>
-          OR:
-        </Text>
+        <Text className={styles.or}>OR:</Text>
         <div className={styles.connecttocontainer}>
           <label className={styles.connectto} htmlFor='connect'>
-            Connect to lobby by{' '}
-            <Text
-              style={{
-                fontWeight: 700,
-                color: '#69c0ff',
-                marginLeft: '7px',
-              }}>
-              URL:
-            </Text>
+            Connect to lobby by <Text className={styles.url}>URL:</Text>
             <input
               className={styles.connectinput}
               type='url'
