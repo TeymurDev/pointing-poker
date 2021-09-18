@@ -15,21 +15,9 @@ body {
   margin: 0;
   color: black;
   font-family: 'Roboto';
-  background-color: lightgray;
+  background-color: white;
 }
 
 a {
   text-decoration: none;
-}
-
-.container {
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.card {
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px 20px 30px;
-  margin-top: 50px;
 }

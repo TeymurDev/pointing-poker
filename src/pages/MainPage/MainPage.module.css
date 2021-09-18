@@ -1,0 +1,72 @@
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainpage {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ppimage {
+  margin-top: 120px;
+}
+
+.sessioncontainer {
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+  margin-right: 569px;
+}
+
+.connecttocontainer {
+  margin-right: 229px;
+}
+
+.connectto {
+  display: flex;
+  align-items: center;
+  margin-top: 48px;
+  margin-bottom: 241px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.connectinput {
+  height: 32px;
+  outline: none;
+  margin-left: 100px;
+}
+
+.createsession.createsession {
+  margin-right: 100px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.or.or {
+  margin-top: 45px;
+  margin-right: 501px;
+  font-weight: 700;
+  font-size: 48px;
+  color: #69c0ff;
+}
+
+.url.url {
+  font-weight: 700;
+  color: #69c0ff;
+  margin-left: 7px;
+}
+
+.startplan.startplan {
+  margin-top: 40px;
+  margin-right: 517px;
+  font-size: 48px;
+  color: #40a9ff;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
