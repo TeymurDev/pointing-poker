@@ -1,0 +1,10 @@
+.avatarvisible {
+  display: block;
+  margin-top: -20px;
+  background-color: #70dade;
+  margin-left: 160px;
+}
+
+.avatarnotvisible {
+  display: none;
+}

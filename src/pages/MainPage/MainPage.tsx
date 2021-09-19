@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Button, Typography } from 'antd';
 import styles from './MainPage.module.css';
+import ConnectModal from '../../components/ConnectModal/ConnectModal';
 
 const { Text } = Typography;
 
@@ -18,7 +19,7 @@ const MainPage: FC = () => {
         <Text className={styles.startplan}>Start your planning:</Text>
         <div className={styles.sessioncontainer}>
           <Text className={styles.createsession}>Create session:</Text>
-          <Button type='primary'>Start new game</Button>
+          <ConnectModal />
         </div>
         <Text className={styles.or}>OR:</Text>
         <div className={styles.connecttocontainer}>
