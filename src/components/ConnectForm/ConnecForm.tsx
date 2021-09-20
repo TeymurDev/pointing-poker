@@ -16,7 +16,7 @@ const layout = {
 const validateMessages = {
   required: 'Enter your name',
 };
-// get value form event, display only 1 image on upload, show success message
+// download user avatar
 const normFile = (e: any) => {
   console.log('Upload event:', e);
 
