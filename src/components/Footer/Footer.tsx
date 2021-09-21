@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 
 const Footer: FC = () => {
   return (
-    <div className={styles.footercontainer}>
+    <div className={styles.container}>
       <a
         className={styles.github}
         href='https://github.com/TeymurDev'
@@ -30,7 +30,7 @@ const Footer: FC = () => {
         href='https://rs.school/js/'
         target='_blank'
         rel='noopener noreferrer'>
-        <span className={styles.rssyear}>&lsquo;21</span>
+        <span className={styles.rssYear}>&lsquo;21</span>
       </a>
     </div>
   );
