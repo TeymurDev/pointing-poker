@@ -4,7 +4,7 @@ import styles from './member-card.module.css';
 
 const { Text } = Typography;
 
-type MemberCardInfo = {
+export type MemberCardInfo = {
   id: string;
   firstName: string;
   lastName: string;
