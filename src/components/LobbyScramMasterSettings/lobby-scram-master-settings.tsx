@@ -8,7 +8,7 @@ const { Option } = Select;
 
 const format = 'mm:ss';
 
-type SettingsValues = {
+export type SettingsValues = {
   scramMasterParticipation: boolean;
   newMemberAdmission: boolean;
   autoCardsFlip: boolean;
