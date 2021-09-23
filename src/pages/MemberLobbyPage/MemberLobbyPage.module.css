@@ -34,11 +34,23 @@
   margin: 10px 0;
 }
 
-.list {
-  max-width: 990px;
-}
-
 .listItem {
   display: flex !important;
   justify-content: center;
+}
+
+.list {
+  width: 330px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    width: 660px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .list {
+    width: 990px;
+  }
 }
