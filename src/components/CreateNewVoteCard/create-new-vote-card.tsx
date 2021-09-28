@@ -1,6 +1,6 @@
 import { Space, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import styles from './create-vote-card.module.css';
+import styles from './create-new-vote-card.module.css';
 
 const CreateVoteCard = () => {
   return (
