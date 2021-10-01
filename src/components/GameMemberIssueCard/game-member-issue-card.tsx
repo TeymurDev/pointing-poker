@@ -3,7 +3,7 @@ import styles from './game-member-issue-card.module.css';
 
 const { Text } = Typography;
 
-type GameMemberIssueCardInfo = {
+export type GameMemberIssueCardInfo = {
   current: boolean;
   name: string;
   priority: string;
