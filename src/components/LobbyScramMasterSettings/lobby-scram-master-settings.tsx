@@ -14,6 +14,8 @@ export type SettingsValues = {
   autoCardsFlip: boolean;
   changeVoteAfterReveal: boolean;
   timerPresence: boolean;
+  timerMinutes?: number | undefined;
+  timerSeconds?: number | undefined;
 };
 
 const LobbyScramMasterSettings = ({
@@ -23,7 +25,7 @@ const LobbyScramMasterSettings = ({
   changeVoteAfterReveal,
   timerPresence,
 }: SettingsValues) => {
-  const [timer, setTimer] = useState(timerPresence);
+  const [timerExistence, setTimerExistence] = useState(timerPresence);
 
   return (
     <div>
@@ -97,11 +99,11 @@ const LobbyScramMasterSettings = ({
             checkedChildren='on'
             unCheckedChildren='off'
             onChange={(value) => {
-              setTimer(value);
+              setTimerExistence(value);
             }}
           />
         </Space>
-        {timer ? (
+        {timerExistence ? (
           <Space
             align='center'
             direction='horizontal'
