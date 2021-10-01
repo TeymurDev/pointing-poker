@@ -1,0 +1,34 @@
+.container {
+  width: 200px;
+  height: 50px;
+  padding: 0 10px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}
+
+.avatar {
+  background: #69c0ff;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.textPertain {
+  font-size: xx-small;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+
+.textName {
+  font-size: small;
+}
+
+.textPost {
+  font-size: xx-small;
+  font-family: 'Nunito';
+}
