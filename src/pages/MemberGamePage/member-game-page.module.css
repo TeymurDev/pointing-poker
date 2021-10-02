@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  margin: 10px 0;
+  gap: 10px !important;
+}
+
+.sessionTitleText {
+  font-size: x-large;
+  cursor: default;
+}
+
+.titleText {
+  font-size: large;
+  cursor: default;
+}
+
+.scramMasterContainer {
+  gap: 0 !important;
+}
+
+.labelText {
+  font-family: 'Nunito';
+  color: rgba(0, 0, 0, 0.65) !important;
+  cursor: default;
+}
+
+.listContainer {
+  width: min-content;
+}
+
+.radioItem>span:first-of-type {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  right: 20%;
+}
+
+.gameProcessContainer {
+  width: 95vw;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
