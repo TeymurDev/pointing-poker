@@ -20,32 +20,30 @@ const MemberCard = ({
   image,
 }: MemberCardInfo) => {
   return (
-    <div>
-      <Space align='center' className={styles.container}>
-        <Space size={15} align='center'>
-          <Avatar
-            size={50}
-            src={image}
-            icon={<UserOutlined />}
-            className={styles.avatar}
-          />
-          <div className={styles.textContainer}>
-            {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
-            <Text className={styles.textName}>
-              {firstName} {lastName} {id}
-            </Text>
-            <Text className={styles.textPost}>{position}</Text>
-          </div>
-        </Space>
-        <Button
-          shape='circle'
-          size='large'
-          type='text'
-          icon={<StopOutlined />}
-          className={styles.deleteButton}
+    <Space align='center' className={styles.container}>
+      <Space size={15} align='center'>
+        <Avatar
+          size={50}
+          src={image}
+          icon={<UserOutlined />}
+          className={styles.avatar}
         />
+        <div className={styles.textContainer}>
+          {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
+          <Text className={styles.textName}>
+            {firstName} {lastName} {id}
+          </Text>
+          <Text className={styles.textPost}>{position}</Text>
+        </div>
       </Space>
-    </div>
+      <Button
+        shape='circle'
+        size='large'
+        type='text'
+        icon={<StopOutlined />}
+        className={styles.deleteButton}
+      />
+    </Space>
   );
 };
 

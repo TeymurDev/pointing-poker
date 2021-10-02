@@ -9,11 +9,9 @@ type ScoreCardInfo = {
 
 const ScoreCard = ({ mainText }: ScoreCardInfo) => {
   return (
-    <div>
-      <Space align='center' className={styles.container}>
-        <Text className={styles.text}>{mainText}</Text>
-      </Space>
-    </div>
+    <Space align='center' className={styles.container}>
+      <Text className={styles.text}>{mainText}</Text>
+    </Space>
   );
 };
 

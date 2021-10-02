@@ -12,14 +12,12 @@ const LinkToLobby = ({ link }: LinkToLobbyInfo) => {
   };
 
   return (
-    <div>
-      <Space className={styles.container}>
-        <Input value={link} readOnly />
-        <CopyToClipboard text={link} onCopy={success}>
-          <Button type='primary'>Copy</Button>
-        </CopyToClipboard>
-      </Space>
-    </div>
+    <Space className={styles.container}>
+      <Input value={link} readOnly />
+      <CopyToClipboard text={link} onCopy={success}>
+        <Button type='primary'>Copy</Button>
+      </CopyToClipboard>
+    </Space>
   );
 };
 
