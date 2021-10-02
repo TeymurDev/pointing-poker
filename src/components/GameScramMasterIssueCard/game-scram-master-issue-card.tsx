@@ -4,7 +4,7 @@ import styles from './game-scram-master-issue-card.module.css';
 
 const { Text } = Typography;
 
-type GameScramMasterIssueCardInfo = {
+export type GameScramMasterIssueCardInfo = {
   current: boolean;
   name: string;
   priority: string;
