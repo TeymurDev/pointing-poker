@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Modal, Button } from 'antd';
 import ConnectForm from '../ConnectForm/ConnecForm';
 
 const ConnectModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const history = useHistory();
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -11,6 +14,7 @@ const ConnectModal = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    history.push('/scrammaster');
   };
 
   const handleCancel = () => {
@@ -27,7 +31,8 @@ const ConnectModal = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        destroyOnClose>
+        destroyOnClose
+        style={{ overflowX: 'hidden' }}>
         <ConnectForm />
       </Modal>
     </>

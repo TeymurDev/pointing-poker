@@ -4,7 +4,7 @@ import styles from './scram-master-card.module.css';
 
 const { Text } = Typography;
 
-type ScramMasterCardInfo = {
+export type ScramMasterCardInfo = {
   id: string;
   firstName: string;
   lastName: string;

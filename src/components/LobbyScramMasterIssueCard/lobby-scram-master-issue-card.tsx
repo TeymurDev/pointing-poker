@@ -4,7 +4,7 @@ import styles from './lobby-scram-master-issue-card.module.css';
 
 const { Text } = Typography;
 
-type LobbyScramMasterIssueCardInfo = {
+export type LobbyScramMasterIssueCardInfo = {
   name: string;
   priority: string;
 };

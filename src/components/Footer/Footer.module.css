@@ -1,50 +1,46 @@
-.footercontainer {
-  padding: 10px 100px;
+.container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   max-width: 1140px;
+  padding: 10px;
   margin: 0 auto;
 }
 
 .github {
   display: block;
-  width: 120px;
-  height: 45px;
   padding-left: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  color: black;
   background-image: url('../../assets/githublogo.svg');
   background-size: 35px;
   background-repeat: no-repeat;
   background-position: left center;
-  line-height: 45px;
-  color: black;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
   transition: 0.3s;
 }
 
 .rss {
-  display: block;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
-  width: 86px;
+  display: block;
   height: 32px;
+  padding-right: 110px;
   background-image: url('../../assets/rsschoollogo.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
-  padding-right: 111px;
 }
 
-.rssyear {
+.rssYear {
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 21px;
-  letter-spacing: -2px;
+  font-size: 22px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: -1px;
   color: black;
-  line-height: 0.9;
+  line-height: 0.7;
   font-weight: bold;
-  transition: 0.3s;
 }

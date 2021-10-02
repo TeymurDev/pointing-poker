@@ -1,41 +1,49 @@
 import { FC } from 'react';
-import { Button, Typography } from 'antd';
+import { useHistory } from 'react-router';
+import { Space, Button, Typography, Input } from 'antd';
 import styles from './MainPage.module.css';
+
 import ConnectModal from '../../components/ConnectModal/ConnectModal';
 
 const { Text } = Typography;
 
 const MainPage: FC = () => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/teammember');
+  };
+
   return (
-    <div className={styles.container}>
-      <section className={styles.mainpage}>
-        <img
-          className={styles.ppimage}
-          src='/planningpokerlogo.png'
-          alt='logo'
-          width='550'
-          height='149'
-        />
-        <Text className={styles.startplan}>Start your planning:</Text>
-        <div className={styles.sessioncontainer}>
-          <Text className={styles.createsession}>Create session:</Text>
+    <Space direction='vertical' align='center' className={styles.container}>
+      <img className={styles.logo} src='/planningpokerlogo.png' alt='logo' />
+      <Space
+        direction='vertical'
+        align='start'
+        size='middle'
+        className={styles.mainContentContainer}>
+        <Text className={styles.titleText}>Start your planning:</Text>
+        <Space>
+          <Text className={styles.text}>Create session:</Text>
           <ConnectModal />
-        </div>
-        <Text className={styles.or}>OR:</Text>
-        <div className={styles.connecttocontainer}>
-          <label className={styles.connectto} htmlFor='connect'>
-            Connect to lobby by <Text className={styles.url}>URL:</Text>
-            <input
-              className={styles.connectinput}
-              type='url'
-              id='connect'
-              required
-            />
-            <Button type='primary'>Connect</Button>
-          </label>
-        </div>
-      </section>
-    </div>
+        </Space>
+        <Space align='center' className={styles.titleTextContainer}>
+          <Text className={styles.titleText}>OR:</Text>
+        </Space>
+        <Space direction='horizontal' className={styles.connectContainer}>
+          <Space>
+            <Text className={styles.text}>Connect to lobby by</Text>
+            <Text className={styles.url}>URL:</Text>
+          </Space>
+          <Space className={styles.inputContainer}>
+            <Input id='connect' type='url' required />
+            <Button onClick={handleClick} type='primary'>
+              Connect
+            </Button>
+          </Space>
+        </Space>
+      </Space>
+    </Space>
   );
 };
 
