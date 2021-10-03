@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Space, Button, Typography, List, notification } from 'antd';
 import styles from './MemberLobbyPage.module.css';
 
@@ -10,10 +11,6 @@ import MemberCard, {
 
 const { Text } = Typography;
 
-const lobbyNotification = notification.info({
-  message: 'Welcome to lobby!',
-});
-
 type MemberLobbyPageProp = {
   sessionName: string;
   scramMasterInfo: ScramMasterCardInfo;
@@ -25,9 +22,13 @@ const MemberLobbyPage = ({
   scramMasterInfo,
   membersInfo,
 }: MemberLobbyPageProp) => {
+  useEffect(() => {
+    notification.info({
+      message: 'Welcome to lobby!',
+    });
+  });
   return (
     <Space direction='vertical' align='center' className={styles.container}>
-      {lobbyNotification}
       <Text className={styles.sessionTitleText}>{sessionName}</Text>
 
       <Space

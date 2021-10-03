@@ -6,18 +6,16 @@ const { Text } = Typography;
 
 const CreateNewIssueCard = () => {
   return (
-    <div>
-      <Space align='center' className={styles.container}>
-        <Text className={styles.text}>Create new Issue</Text>
-        <Button
-          shape='circle'
-          size='large'
-          type='text'
-          icon={<PlusOutlined />}
-          className={styles.addButton}
-        />
-      </Space>
-    </div>
+    <Space align='center' className={styles.container}>
+      <Text className={styles.text}>Create new Issue</Text>
+      <Button
+        shape='circle'
+        size='large'
+        type='text'
+        icon={<PlusOutlined />}
+        className={styles.addButton}
+      />
+    </Space>
   );
 };
 

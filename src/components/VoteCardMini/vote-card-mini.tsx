@@ -1,14 +1,12 @@
 import { Space, Typography } from 'antd';
 import { QuestionOutlined } from '@ant-design/icons';
-import styles from './vote-card.module.css';
+import styles from './vote-card-mini.module.css';
+
+import { VoteCardInfo } from '../VoteCard/vote-card';
 
 const { Text } = Typography;
 
-export type VoteCardInfo = {
-  cardValue: number | undefined;
-};
-
-const VoteCard = ({ cardValue }: VoteCardInfo) => {
+const VoteCardMini = ({ cardValue }: VoteCardInfo) => {
   return (
     <Space size={15} align='center' className={styles.container}>
       {cardValue ? (
@@ -36,4 +34,4 @@ const VoteCard = ({ cardValue }: VoteCardInfo) => {
   );
 };
 
-export default VoteCard;
+export default VoteCardMini;

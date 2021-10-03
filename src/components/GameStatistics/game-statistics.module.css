@@ -1,0 +1,19 @@
+.container {
+  width: max-content;
+}
+
+.titleText {
+  font-size: large;
+  cursor: default;
+}
+
+.text {
+  font-size: large;
+  font-family: 'Nunito';
+}
+
+.listItem {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
