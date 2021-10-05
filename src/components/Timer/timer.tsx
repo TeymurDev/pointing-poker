@@ -5,13 +5,13 @@ import styles from './timer.module.css';
 const { Title } = Typography;
 
 type timerInfo = {
-  initialMinutes: number;
-  initialSeconds: number;
+  initialMinutes: number | undefined;
+  initialSeconds: number | undefined;
 };
 
 const Timer = ({ initialMinutes, initialSeconds }: timerInfo) => {
-  const [minutes, setMinutes] = useState(initialMinutes);
-  const [seconds, setSeconds] = useState(initialSeconds);
+  const [minutes, setMinutes] = useState(initialMinutes || 0);
+  const [seconds, setSeconds] = useState(initialSeconds || 0);
   useEffect(() => {
     const myInterval = setInterval(() => {
       if (seconds > 0) {

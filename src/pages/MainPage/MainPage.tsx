@@ -1,19 +1,12 @@
 import { FC } from 'react';
-import { useHistory } from 'react-router';
-import { Space, Button, Typography, Input } from 'antd';
+import { Space, Typography, Input } from 'antd';
 import styles from './MainPage.module.css';
-
+import ConnectModalMaster from '../../components/ConnectModalMaster/ConnectModalMaster';
 import ConnectModal from '../../components/ConnectModal/ConnectModal';
 
 const { Text } = Typography;
 
 const MainPage: FC = () => {
-  const history = useHistory();
-
-  const handleClick = () => {
-    history.push('/teammember');
-  };
-
   return (
     <Space direction='vertical' align='center' className={styles.container}>
       <img className={styles.logo} src='/planningpokerlogo.png' alt='logo' />
@@ -25,7 +18,7 @@ const MainPage: FC = () => {
         <Text className={styles.titleText}>Start your planning:</Text>
         <Space>
           <Text className={styles.text}>Create session:</Text>
-          <ConnectModal />
+          <ConnectModalMaster />
         </Space>
         <Space align='center' className={styles.titleTextContainer}>
           <Text className={styles.titleText}>OR:</Text>
@@ -37,9 +30,8 @@ const MainPage: FC = () => {
           </Space>
           <Space className={styles.inputContainer}>
             <Input id='connect' type='url' required />
-            <Button onClick={handleClick} type='primary'>
-              Connect
-            </Button>
+            {/* <Button type='primary'>Connect</Button> */}
+            <ConnectModal />
           </Space>
         </Space>
       </Space>

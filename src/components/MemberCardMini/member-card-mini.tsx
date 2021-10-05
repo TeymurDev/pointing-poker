@@ -1,18 +1,12 @@
 import { Space, Button, Avatar, Typography } from 'antd';
 import { UserOutlined, StopOutlined } from '@ant-design/icons';
-import styles from './member-card.module.css';
+import styles from './member-card-mini.module.css';
+
+import { MemberCardInfo } from '../MemberCard/member-card';
 
 const { Text } = Typography;
 
-export type MemberCardInfo = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  position: string;
-  image: string;
-};
-
-const MemberCard = ({
+const MemberCardMini = ({
   id,
   firstName,
   lastName,
@@ -23,7 +17,7 @@ const MemberCard = ({
     <Space align='center' className={styles.container}>
       <Space size={15} align='center'>
         <Avatar
-          size={50}
+          size='default'
           src={image}
           icon={<UserOutlined />}
           className={styles.avatar}
@@ -47,4 +41,4 @@ const MemberCard = ({
   );
 };
 
-export default MemberCard;
+export default MemberCardMini;

@@ -37,7 +37,6 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-console': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'import/no-extraneous-dependencies': ['off', { devDependencies: true }],
   },
   settings: {
     'import/resolver': {

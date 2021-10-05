@@ -20,23 +20,21 @@ const ScramMasterCard = ({
   image,
 }: ScramMasterCardInfo) => {
   return (
-    <div>
-      <Space size={15} align='center' className={styles.container}>
-        <Avatar
-          size={50}
-          src={image}
-          icon={<UserOutlined />}
-          className={styles.avatar}
-        />
-        <div className={styles.textContainer}>
-          {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
-          <Text className={styles.textName}>
-            {firstName} {lastName} {id}
-          </Text>
-          <Text className={styles.textPost}>{position}</Text>
-        </div>
-      </Space>
-    </div>
+    <Space size={15} align='center' className={styles.container}>
+      <Avatar
+        size={50}
+        src={image}
+        icon={<UserOutlined />}
+        className={styles.avatar}
+      />
+      <div className={styles.textContainer}>
+        {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
+        <Text className={styles.textName}>
+          {firstName} {lastName} {id}
+        </Text>
+        <Text className={styles.textPost}>{position}</Text>
+      </div>
+    </Space>
   );
 };
 

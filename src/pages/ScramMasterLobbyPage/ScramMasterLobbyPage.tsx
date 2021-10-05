@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Space, Button, Typography, List, notification } from 'antd';
 import styles from './ScramMasterLobbyPage.module.css';
 
@@ -36,6 +37,12 @@ const ScramMasterLobbyPage = ({
   issuesInfo,
   settingsInfo,
 }: ScramMasterLobbyPageProp) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/scrammastergame');
+  };
+
   useEffect(() => {
     notification.info({
       message: 'Welcome to lobby!',
@@ -68,7 +75,7 @@ const ScramMasterLobbyPage = ({
       </Space>
 
       <Space className={styles.buttonContainer}>
-        <Button type='primary' className={styles.button}>
+        <Button onClick={handleClick} type='primary' className={styles.button}>
           Start game
         </Button>
         <Button type='primary' ghost className={styles.button}>
