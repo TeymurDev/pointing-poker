@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Modal, Button } from 'antd';
-import ConnectForm from '../ConnectForm/ConnectForm';
+import ConnectFormMaster from '../ConnectFormMaster/ConnecFormMaster';
 
 const ConnectModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -14,7 +14,7 @@ const ConnectModal = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
-    history.push('/teammemberlobby');
+    history.push('/scrammasterlobby');
   };
 
   const handleCancel = () => {
@@ -24,7 +24,7 @@ const ConnectModal = () => {
   return (
     <>
       <Button type='primary' onClick={showModal}>
-        Connect
+        Start new game
       </Button>
       <Modal
         title='Connect to lobby'
@@ -33,7 +33,7 @@ const ConnectModal = () => {
         onCancel={handleCancel}
         destroyOnClose
         style={{ overflowX: 'hidden' }}>
-        <ConnectForm />
+        <ConnectFormMaster />
       </Modal>
     </>
   );

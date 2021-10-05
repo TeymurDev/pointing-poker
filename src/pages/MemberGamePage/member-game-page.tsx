@@ -63,7 +63,6 @@ const MemberGamePage = ({
           initialSeconds={settingsInfo.timerSeconds}
         />
       ) : null}
-
       <Button type='primary' ghost className={styles.button}>
         Exit
       </Button>

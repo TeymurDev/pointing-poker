@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Space, Button, Typography, List, notification } from 'antd';
 import styles from './MemberLobbyPage.module.css';
 
@@ -22,6 +23,11 @@ const MemberLobbyPage = ({
   scramMasterInfo,
   membersInfo,
 }: MemberLobbyPageProp) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/teammembergame');
+  };
   useEffect(() => {
     notification.info({
       message: 'Welcome to lobby!',
@@ -46,6 +52,9 @@ const MemberLobbyPage = ({
       </Space>
 
       <Space className={styles.exitButtonContainer}>
+        <button onClick={handleClick} type='button'>
+          PRESS ME
+        </button>
         <Button type='primary' ghost className={styles.exitButton}>
           Exit
         </Button>
