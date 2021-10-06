@@ -25,7 +25,7 @@ const MemberLobbyPage = () => {
   const { roomId } = useParams<{ roomId: string }>();
 
   const handleClick = () => {
-    history.push('/teammembergame');
+    history.push(`/membergame/${roomId}`);
   };
 
   useEffect(() => {

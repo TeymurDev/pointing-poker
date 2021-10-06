@@ -41,65 +41,6 @@ const Content: FC = () => {
         </Route>
         <Route path='/mastergame/:roomId'>
           <ScramMasterGamePage
-            sessionName='mastergame'
-            scramMasterInfo={{
-              id: '1',
-              firstName: 'John',
-              lastName: 'Peters',
-              position: 'Master',
-              image: 'link',
-            }}
-            membersInfo={[
-              {
-                id: '2',
-                firstName: 'David',
-                lastName: 'Blane',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '3',
-                firstName: 'Dayana',
-                lastName: 'Ross',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '4',
-                firstName: 'Daniel',
-                lastName: 'Horn',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '5',
-                firstName: 'Mark',
-                lastName: 'Single',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '6',
-                firstName: 'Jane',
-                lastName: 'Ring',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '7',
-                firstName: 'Larry',
-                lastName: 'King',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '8',
-                firstName: 'Fill',
-                lastName: 'Fill',
-                position: 'Player',
-                image: 'link',
-              },
-            ]}
             issuesInfo={[
               {
                 current: true,
@@ -149,65 +90,6 @@ const Content: FC = () => {
         </Route>
         <Route path='/membergame/:roomId'>
           <MemberGamePage
-            sessionName='membergame'
-            scramMasterInfo={{
-              id: '1',
-              firstName: 'John',
-              lastName: 'Peters',
-              position: 'Master',
-              image: 'link',
-            }}
-            membersInfo={[
-              {
-                id: '2',
-                firstName: 'David',
-                lastName: 'Blane',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '3',
-                firstName: 'Dayana',
-                lastName: 'Ross',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '4',
-                firstName: 'Daniel',
-                lastName: 'Horn',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '5',
-                firstName: 'Mark',
-                lastName: 'Single',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '6',
-                firstName: 'Jane',
-                lastName: 'Ring',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '7',
-                firstName: 'Larry',
-                lastName: 'King',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '8',
-                firstName: 'Fill',
-                lastName: 'Fill',
-                position: 'Player',
-                image: 'link',
-              },
-            ]}
             issuesInfo={[
               {
                 current: true,

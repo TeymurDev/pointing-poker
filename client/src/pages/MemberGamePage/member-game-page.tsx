@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Space, Button, Typography, List, Radio } from 'antd';
+import axios from 'axios';
 import styles from './member-game-page.module.css';
 
 import ScramMasterCard, {
@@ -18,42 +20,58 @@ import MemberCardMini from '../../components/MemberCardMini/member-card-mini';
 const { Text } = Typography;
 
 type MemberGamePageProp = {
-  sessionName: string;
-  scramMasterInfo: ScramMasterCardInfo;
-  membersInfo: Array<MemberCardInfo>;
   issuesInfo: Array<GameMemberIssueCardInfo>;
   settingsInfo: SettingsValues;
   voteCardsInfo: Array<VoteCardInfo>;
 };
 
+type UsersInfo = {
+  master: ScramMasterCardInfo;
+  users: Array<MemberCardInfo>;
+};
+
 const MemberGamePage = ({
-  sessionName,
-  scramMasterInfo,
-  membersInfo,
   issuesInfo,
   settingsInfo,
   voteCardsInfo,
 }: MemberGamePageProp) => {
+  const [users, setUsers] = useState<UsersInfo>();
   const [voteValue, setVoteValue] = useState(0);
+
+  const { roomId } = useParams<{ roomId: string }>();
+
   const onChange = (event: any) => {
     console.log('radio checked', event.target.value);
     setVoteValue(event.target.value);
   };
 
+  useEffect(() => {
+    axios
+      .get(`/rooms/${roomId}/users`)
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch(() => {
+        // handle error
+      });
+  }, []);
+
+  if (!users) return null;
+
   return (
     <Space direction='vertical' align='center' className={styles.container}>
-      <Text className={styles.sessionTitleText}>{sessionName}</Text>
+      <Text className={styles.sessionTitleText}>Game</Text>
       <Space
         direction='vertical'
         align='start'
         className={styles.scramMasterContainer}>
         <Text className={styles.labelText}>Scram master</Text>
         <ScramMasterCard
-          id={scramMasterInfo.id}
-          firstName={scramMasterInfo.firstName}
-          lastName={scramMasterInfo.lastName}
-          position={scramMasterInfo.position}
-          image={scramMasterInfo.image}
+          id={users.master.id}
+          firstName={users.master.firstName}
+          lastName={users.master.lastName}
+          position={users.master.position}
+          image={users.master.image}
         />
       </Space>
 
@@ -108,7 +126,7 @@ const MemberGamePage = ({
                 xl: 1,
                 xxl: 1,
               }}
-              dataSource={membersInfo}
+              dataSource={users.users}
               renderItem={(item) => (
                 <List.Item key={item.id} className={styles.listItem}>
                   <ScoreCard mainText='In progress' />
@@ -132,7 +150,7 @@ const MemberGamePage = ({
                 xl: 1,
                 xxl: 1,
               }}
-              dataSource={membersInfo}
+              dataSource={users.users}
               renderItem={(item) => (
                 <List.Item key={item.id} className={styles.listItem}>
                   <MemberCardMini

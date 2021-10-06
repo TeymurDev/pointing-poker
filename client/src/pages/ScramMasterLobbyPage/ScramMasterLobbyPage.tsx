@@ -41,7 +41,7 @@ const ScramMasterLobbyPage = ({
   const { roomId } = useParams<{ roomId: string }>();
 
   const handleClick = () => {
-    history.push('/scrammastergame');
+    history.push(`/mastergame/${roomId}`);
   };
 
   useEffect(() => {
