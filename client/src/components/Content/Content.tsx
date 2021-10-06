@@ -13,68 +13,8 @@ const Content: FC = () => {
         <Route exact path='/'>
           <MainPage />
         </Route>
-        <Route path='/scrammasterlobby'>
+        <Route path='/masterlobby/:roomId'>
           <ScramMasterLobbyPage
-            sessionName='master'
-            scramMasterInfo={{
-              id: '1',
-              firstName: 'John',
-              lastName: 'Peters',
-              position: 'Master',
-              image: 'link',
-            }}
-            lobbyLink='link'
-            membersInfo={[
-              {
-                id: '2',
-                firstName: 'David',
-                lastName: 'Blane',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '3',
-                firstName: 'Dayana',
-                lastName: 'Ross',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '4',
-                firstName: 'Daniel',
-                lastName: 'Horn',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '5',
-                firstName: 'Mark',
-                lastName: 'Single',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '6',
-                firstName: 'Jane',
-                lastName: 'Ring',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '7',
-                firstName: 'Larry',
-                lastName: 'King',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '8',
-                firstName: 'Fill',
-                lastName: 'Fill',
-                position: 'Player',
-                image: 'link',
-              },
-            ]}
             issuesInfo={[
               {
                 name: 'issue542',
@@ -96,70 +36,10 @@ const Content: FC = () => {
             }}
           />
         </Route>
-        <Route path='/teammemberlobby'>
-          <MemberLobbyPage
-            sessionName='member'
-            scramMasterInfo={{
-              id: '1',
-              firstName: 'John',
-              lastName: 'Peters',
-              position: 'Master',
-              image: 'link',
-            }}
-            membersInfo={[
-              {
-                id: '2',
-                firstName: 'David',
-                lastName: 'Blane',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '3',
-                firstName: 'Dayana',
-                lastName: 'Ross',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '4',
-                firstName: 'Daniel',
-                lastName: 'Horn',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '5',
-                firstName: 'Mark',
-                lastName: 'Single',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '6',
-                firstName: 'Jane',
-                lastName: 'Ring',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '7',
-                firstName: 'Larry',
-                lastName: 'King',
-                position: 'Player',
-                image: 'link',
-              },
-              {
-                id: '8',
-                firstName: 'Fill',
-                lastName: 'Fill',
-                position: 'Player',
-                image: 'link',
-              },
-            ]}
-          />
+        <Route path='/memberlobby/:roomId'>
+          <MemberLobbyPage />
         </Route>
-        <Route path='/scrammastergame'>
+        <Route path='/mastergame/:roomId'>
           <ScramMasterGamePage
             sessionName='mastergame'
             scramMasterInfo={{
@@ -267,7 +147,7 @@ const Content: FC = () => {
             ]}
           />
         </Route>
-        <Route path='/teammembergame'>
+        <Route path='/membergame/:roomId'>
           <MemberGamePage
             sessionName='membergame'
             scramMasterInfo={{

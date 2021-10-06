@@ -6,6 +6,13 @@ import { UserOutlined } from '@ant-design/icons';
 import { socket } from '../../api/index';
 import './ConnectFormMaster.css';
 
+type masterData = {
+  firstName: string;
+  lastName: string | undefined;
+  position: string | undefined;
+  image: string | undefined;
+};
+
 const layout = {
   labelCol: {
     span: 8,
@@ -29,17 +36,6 @@ const formFile = (event: any) => {
   return event && newFileList;
 };
 
-type masterData = {
-  firstName: string;
-  lastName: string | undefined;
-  position: string | undefined;
-  image: string | undefined;
-};
-
-function masterCreatesRoom(userData: masterData) {
-  socket.emit('createRoom', userData);
-}
-
 const ConnectForm: FC = () => {
   const history = useHistory();
 
@@ -52,10 +48,11 @@ const ConnectForm: FC = () => {
   };
 
   // form submission
-  const onFinish = (values: masterData) => {
-    console.log(values);
-    masterCreatesRoom(values);
-    history.push('/scrammasterlobby');
+  const onFinish = (userData: masterData) => {
+    socket.emit('createRoom', userData);
+    socket.on('createRoomResponse', function (roomId) {
+      history.push(`/masterlobby/${roomId}`);
+    });
   };
 
   return (

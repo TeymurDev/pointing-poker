@@ -6,9 +6,14 @@ import ConnectForm from '../ConnectForm/ConnectForm';
 const ConnectModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const showModal = async () => {
+  const getId = () => {
     const input = document.getElementById('connect') as HTMLInputElement;
     const id = input.value;
+    return id;
+  };
+
+  const showModal = async () => {
+    const id = getId();
 
     try {
       await axios.get(`/rooms/${id}/validate`);
@@ -34,7 +39,7 @@ const ConnectModal = () => {
         destroyOnClose
         footer={null}
         style={{ overflowX: 'hidden' }}>
-        <ConnectForm />
+        <ConnectForm getId={getId} />
       </Modal>
     </>
   );

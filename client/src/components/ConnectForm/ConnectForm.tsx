@@ -1,10 +1,18 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Input, Button, Switch, Upload } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import { UserOutlined } from '@ant-design/icons';
 import { socket } from '../../api/index';
 import './ConnectForm.css';
+
+type memberData = {
+  gameRole: boolean;
+  firstName: string;
+  lastName: string | undefined;
+  position: string | undefined;
+  image: string | undefined;
+};
 
 const layout = {
   labelCol: {
@@ -29,19 +37,7 @@ const formFile = (event: any) => {
   return event && newFileList;
 };
 
-type memberData = {
-  firstName: string;
-  lastName: string | undefined;
-  position: string | undefined;
-  image: string | undefined;
-  // roomId: string;
-};
-
-function userJoinRoom(userData: memberData) {
-  socket.emit('joinRoom', userData);
-}
-
-const ConnectForm: FC = () => {
+const ConnectForm = ({ getId }: any) => {
   const history = useHistory();
 
   const [avatarVisibilty, setAvatarVisibility] = useState(true);
@@ -53,10 +49,11 @@ const ConnectForm: FC = () => {
   };
 
   // form submission
-  const onFinish = (values: any) => {
-    console.log(values);
-    userJoinRoom(values);
-    history.push('/teammemberlobby');
+  const onFinish = (userData: memberData) => {
+    socket.emit('joinRoom', { ...userData, roomId: getId() });
+    socket.on('joinRoomResponse', function (roomId) {
+      history.push(`/memberlobby/${roomId}`);
+    });
   };
 
   return (
@@ -66,8 +63,16 @@ const ConnectForm: FC = () => {
       onFinish={onFinish}
       validateMessages={validateMessages}
       preserve={false}>
-      <Form.Item label='Connect as Observer' valuePropName='checked'>
-        <Switch />
+      <Form.Item
+        name={['gameRole']}
+        label='Connect as'
+        valuePropName='checked'
+        initialValue>
+        <Switch
+          checkedChildren='member'
+          unCheckedChildren='observer'
+          defaultChecked
+        />
       </Form.Item>
       <Form.Item
         name={['firstName']}
