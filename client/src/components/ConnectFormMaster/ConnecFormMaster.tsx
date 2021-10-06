@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
-import { Form, Input, Button, Upload, message } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, Button, Upload } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import { UserOutlined } from '@ant-design/icons';
+import { socket } from '../../api/index';
 import './ConnectFormMaster.css';
 
 const layout = {
@@ -12,37 +14,48 @@ const layout = {
     span: 16,
   },
 };
+
 // validation message
 const validateMessages = {
   required: 'Enter your name',
 };
+
 // download user avatar
-const normFile = (e: any) => {
-  console.log('Upload event:', e);
-
-  if (Array.isArray(e)) {
-    return e;
+const formFile = (event: any) => {
+  if (Array.isArray(event)) {
+    return event;
   }
-  e.fileList = e.fileList.slice(-1);
-
-  message.success('File successfully uploaded');
-
-  return e && e.fileList;
+  const newFileList = event.fileList.slice(-1);
+  return event && newFileList;
 };
 
+type masterData = {
+  firstName: string;
+  lastName: string | undefined;
+  position: string | undefined;
+  image: string | undefined;
+};
+
+function masterCreatesRoom(userData: masterData) {
+  socket.emit('createRoom', userData);
+}
+
 const ConnectForm: FC = () => {
+  const history = useHistory();
+
   const [avatarVisibilty, setAvatarVisibility] = useState(true);
-  const classNameAvatar = avatarVisibilty
-    ? 'avatarvisible'
-    : 'avatarnotvisible';
+  const classNameAvatar = avatarVisibilty ? 'visible' : 'notVisible';
+
   // hide avatar
   const handleClick = () => {
     setAvatarVisibility(false);
   };
+
   // form submission
-  const onFinish = (values: any) => {
+  const onFinish = (values: masterData) => {
     console.log(values);
-    message.success('you are successfully connected');
+    masterCreatesRoom(values);
+    history.push('/scrammasterlobby');
   };
 
   return (
@@ -52,11 +65,8 @@ const ConnectForm: FC = () => {
       onFinish={onFinish}
       validateMessages={validateMessages}
       preserve={false}>
-      {/* <Form.Item label='Connect as Observer' valuePropName='checked'>
-        <Switch />
-      </Form.Item> */}
       <Form.Item
-        name={['user', 'name']}
+        name={['firstName']}
         label='Your first name'
         rules={[
           {
@@ -65,29 +75,25 @@ const ConnectForm: FC = () => {
         ]}>
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'lastname']} label='Your last name'>
+      <Form.Item name={['lastName']} label='Your last name'>
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'position']} label='Your job position'>
+      <Form.Item name={['position']} label='Your job position'>
         <Input />
       </Form.Item>
       <Form.Item
-        name='upload'
+        name='image'
         label='Image'
         valuePropName='fileList'
-        getValueFromEvent={normFile}>
-        <Upload name='logo' action='/upload.do' listType='picture'>
+        getValueFromEvent={formFile}>
+        <Upload name='logo' listType='picture'>
           <Button onClick={handleClick}>Choose file</Button>
-        </Upload>
-      </Form.Item>
-      <Form.Item>
-        <div className='avatar'>
           <Avatar
-            className={classNameAvatar}
+            className={`avatar ${classNameAvatar}`}
             size={50}
             icon={<UserOutlined />}
           />
-        </div>
+        </Upload>
       </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type='primary' htmlType='submit'>

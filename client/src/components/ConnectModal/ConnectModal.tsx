@@ -1,20 +1,21 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Modal, Button } from 'antd';
+import { Modal, Button, message } from 'antd';
+import axios from 'axios';
 import ConnectForm from '../ConnectForm/ConnectForm';
 
 const ConnectModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const history = useHistory();
+  const showModal = async () => {
+    const input = document.getElementById('connect') as HTMLInputElement;
+    const id = input.value;
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-    history.push('/teammemberlobby');
+    try {
+      await axios.get(`/rooms/${id}/validate`);
+      setIsModalVisible(true);
+    } catch (err) {
+      message.error(`Room with ID "${id}" not found`, 5);
+    }
   };
 
   const handleCancel = () => {
@@ -29,9 +30,9 @@ const ConnectModal = () => {
       <Modal
         title='Connect to lobby'
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
         destroyOnClose
+        footer={null}
         style={{ overflowX: 'hidden' }}>
         <ConnectForm />
       </Modal>
