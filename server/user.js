@@ -2,16 +2,22 @@ const { nanoid } = require('nanoid');
 
 const users = {};
 
-function createUser(firstName, lastName, position, image) {
-  const user = { 
-    id: nanoid(), 
-    firstName, 
-    lastName, 
-    position, 
-    image, 
+function createUser(gameRole, firstName, lastName, position, image) {
+  if (gameRole !== 'master') {
+    gameRole = gameRole ? 'member' : 'observer';
+  }
+
+  const user = {
+    id: nanoid(),
+    gameRole,
+    firstName,
+    lastName,
+    position,
+    image,
   };
 
   users[user.id] = user;
+  console.log(users);
 
   return user;
 }

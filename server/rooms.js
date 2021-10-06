@@ -1,3 +1,4 @@
+const { get } = require('http');
 const { nanoid } = require('nanoid');
 
 const rooms = {};
@@ -8,8 +9,12 @@ function createRoom(master) {
   return room;
 }
 
+function getRoom(id) {
+  return rooms[id];
+}
+
 function hasRoom(id) {
-  return !!rooms[id];
+  return !!getRoom(id);
 }
 
 function joinUser(roomId, user) {
@@ -36,6 +41,7 @@ function kickUser(roomId, userId) {
 
 module.exports = {
   createRoom,
+  getRoom,
   hasRoom,
   joinUser,
   kickUser,

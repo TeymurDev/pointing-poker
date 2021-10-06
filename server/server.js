@@ -5,7 +5,7 @@ const color = require("colors");
 const cors = require("cors");
 
 const { createUser, getUserById, removeUser } = require("./user");
-const { createRoom, joinUser, kickUser, hasRoom } = require("./rooms");
+const { createRoom, joinUser, kickUser, getRoom, hasRoom } = require("./rooms");
 
 app.use(express());
 
@@ -20,6 +20,19 @@ app.get('/rooms/:id/validate', (req, res) => {
     res.status(200).send();
   } else {
     res.status(404).send();
+  }
+});
+
+app.get('/rooms/:id/users', (req, res) => {
+  const { id } = req.params;
+  const room = getRoom(id);
+  if (!room) {
+    res.status(404).send();
+  } else {
+    res.status(200).json({
+      master: room.master,
+      users: room.users,
+    });
   }
 });
 
@@ -40,20 +53,20 @@ io.on("connection", (socket) => {
     }))
 
     socket.on("createRoom", ({ firstName, lastName, position, image }) => {
-      const master = createUser(firstName, lastName, position, image);
+      const master = createUser('master', firstName, lastName, position, image);
       const room = createRoom(master);
       socket.join(room.id);
-      console.log(room.id);
+      socket.emit('createRoomResponse', room.id);
     });
 
-    socket.on("joinRoom", ({ firstName, lastName, position, image, roomId }) => {
-      const user = createUser(firstName, lastName, position, image);
-      
+    socket.on("joinRoom", ({ gameRole, firstName, lastName, position, image, roomId }) => {
+      const user = createUser(gameRole, firstName, lastName, position, image);
       try {
         joinUser(roomId, user);
         socket.join(roomId);
+        socket.emit('joinRoomResponse', roomId);
       } catch (e) {
-        // throw error
+        console.error(e);
       }
     });
 
@@ -70,8 +83,13 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", ({ roomId, userId }) => {
         removeUser(userId);
-        kickUser(roomId, userId);
-        socket.leave(roomId);
+        try {
+          kickUser(roomId, userId);
+          socket.leave(roomId);
+        } catch (err) {
+          // handle error
+          console.error(err);
+        }
 
         // if (user) {
         //     io.to(user.roomId).emit("message", {
