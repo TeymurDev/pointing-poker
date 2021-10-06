@@ -1,10 +1,14 @@
-.avatarvisible {
-  display: block;
-  margin-top: -20px;
+.avatar {
+  margin-top: 10px;
   background-color: #70dade;
-  margin-left: 160px;
 }
 
-.avatarnotvisible {
+.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notVisible {
   display: none;
 }
