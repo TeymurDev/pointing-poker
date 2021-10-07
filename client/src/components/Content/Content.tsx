@@ -6,6 +6,67 @@ import MemberLobbyPage from '../../pages/MemberLobbyPage/MemberLobbyPage';
 import ScramMasterGamePage from '../../pages/ScramMasterGamePage/scram-master-game-page';
 import ScramMasterLobbyPage from '../../pages/ScramMasterLobbyPage/ScramMasterLobbyPage';
 
+const issuesLobby = [
+  {
+    name: 'issue1',
+    priority: 'low priority',
+  },
+  {
+    name: 'issue2',
+    priority: 'high priority',
+  },
+  {
+    name: 'issue3',
+    priority: 'low priority',
+  },
+];
+
+const issuesGame = [
+  {
+    current: true,
+    name: 'issue1',
+    priority: 'low priority',
+  },
+  {
+    current: false,
+    name: 'issue2',
+    priority: 'high priority',
+  },
+  {
+    current: false,
+    name: 'issue3',
+    priority: 'low priority',
+  },
+];
+
+const settings = {
+  scramMasterParticipation: false,
+  newMemberAdmission: false,
+  autoCardsFlip: false,
+  changeVoteAfterReveal: false,
+  timerPresence: true,
+  timerMinutes: 60,
+  timerSeconds: 60,
+};
+
+const voteCards = [
+  {
+    cardValue: 1,
+  },
+  {
+    cardValue: 2,
+  },
+  {
+    cardValue: 3,
+  },
+  {
+    cardValue: 5,
+  },
+  {
+    cardValue: 8,
+  },
+];
+
 const Content: FC = () => {
   return (
     <div>
@@ -15,25 +76,8 @@ const Content: FC = () => {
         </Route>
         <Route path='/masterlobby/:roomId'>
           <ScramMasterLobbyPage
-            issuesInfo={[
-              {
-                name: 'issue542',
-                priority: 'low priority',
-              },
-              {
-                name: 'issue555',
-                priority: 'high priority',
-              },
-            ]}
-            settingsInfo={{
-              scramMasterParticipation: false,
-              newMemberAdmission: false,
-              autoCardsFlip: false,
-              changeVoteAfterReveal: false,
-              timerPresence: true,
-              timerMinutes: 60,
-              timerSeconds: 60,
-            }}
+            issuesInfo={issuesLobby}
+            settingsInfo={settings}
           />
         </Route>
         <Route path='/memberlobby/:roomId'>
@@ -41,100 +85,16 @@ const Content: FC = () => {
         </Route>
         <Route path='/mastergame/:roomId'>
           <ScramMasterGamePage
-            issuesInfo={[
-              {
-                current: true,
-                name: 'issue13',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue542',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue6421',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue111',
-                priority: 'low priority',
-              },
-            ]}
-            settingsInfo={{
-              scramMasterParticipation: false,
-              newMemberAdmission: false,
-              autoCardsFlip: false,
-              changeVoteAfterReveal: false,
-              timerPresence: true,
-              timerMinutes: 60,
-              timerSeconds: 60,
-            }}
-            voteCardsInfo={[
-              {
-                cardValue: 15,
-              },
-              {
-                cardValue: 77,
-              },
-              {
-                cardValue: 87,
-              },
-              {
-                cardValue: 33,
-              },
-            ]}
+            issuesInfo={issuesGame}
+            settingsInfo={settings}
+            voteCardsInfo={voteCards}
           />
         </Route>
         <Route path='/membergame/:roomId'>
           <MemberGamePage
-            issuesInfo={[
-              {
-                current: true,
-                name: 'issue13',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue542',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue6421',
-                priority: 'low priority',
-              },
-              {
-                current: false,
-                name: 'issue111',
-                priority: 'low priority',
-              },
-            ]}
-            settingsInfo={{
-              scramMasterParticipation: false,
-              newMemberAdmission: false,
-              autoCardsFlip: false,
-              changeVoteAfterReveal: false,
-              timerPresence: true,
-              timerMinutes: 60,
-              timerSeconds: 60,
-            }}
-            voteCardsInfo={[
-              {
-                cardValue: 15,
-              },
-              {
-                cardValue: 77,
-              },
-              {
-                cardValue: 87,
-              },
-              {
-                cardValue: 33,
-              },
-            ]}
+            issuesInfo={issuesGame}
+            settingsInfo={settings}
+            voteCardsInfo={voteCards}
           />
         </Route>
       </Switch>

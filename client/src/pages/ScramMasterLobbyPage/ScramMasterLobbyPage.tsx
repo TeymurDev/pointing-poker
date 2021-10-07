@@ -44,6 +44,10 @@ const ScramMasterLobbyPage = ({
     history.push(`/mastergame/${roomId}`);
   };
 
+  const onExit = () => {
+    history.push(``);
+  };
+
   useEffect(() => {
     notification.info({
       message: 'Welcome to lobby!',
@@ -90,7 +94,7 @@ const ScramMasterLobbyPage = ({
         <Button onClick={handleClick} type='primary' className={styles.button}>
           Start game
         </Button>
-        <Button type='primary' ghost className={styles.button}>
+        <Button type='primary' ghost className={styles.button} onClick={onExit}>
           Cancel game
         </Button>
       </Space>

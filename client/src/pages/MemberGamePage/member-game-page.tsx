@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Space, Button, Typography, List, Radio } from 'antd';
 import axios from 'axios';
 import styles from './member-game-page.module.css';
@@ -38,11 +38,16 @@ const MemberGamePage = ({
   const [users, setUsers] = useState<UsersInfo>();
   const [voteValue, setVoteValue] = useState(0);
 
+  const history = useHistory();
   const { roomId } = useParams<{ roomId: string }>();
 
   const onChange = (event: any) => {
     console.log('radio checked', event.target.value);
     setVoteValue(event.target.value);
+  };
+
+  const onExit = () => {
+    history.push(``);
   };
 
   useEffect(() => {
@@ -81,7 +86,7 @@ const MemberGamePage = ({
           initialSeconds={settingsInfo.timerSeconds}
         />
       ) : null}
-      <Button type='primary' ghost className={styles.button}>
+      <Button type='primary' ghost className={styles.button} onClick={onExit}>
         Exit
       </Button>
 

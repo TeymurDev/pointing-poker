@@ -28,6 +28,10 @@ const MemberLobbyPage = () => {
     history.push(`/membergame/${roomId}`);
   };
 
+  const onExit = () => {
+    history.push(``);
+  };
+
   useEffect(() => {
     notification.info({
       message: 'Welcome to lobby!',
@@ -70,7 +74,11 @@ const MemberLobbyPage = () => {
           onClick={handleClick}>
           Game
         </Button>
-        <Button type='primary' ghost className={styles.exitButton}>
+        <Button
+          type='primary'
+          ghost
+          className={styles.exitButton}
+          onClick={onExit}>
           Exit
         </Button>
       </Space>
