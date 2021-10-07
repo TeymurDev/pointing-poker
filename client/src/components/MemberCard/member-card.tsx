@@ -6,6 +6,7 @@ const { Text } = Typography;
 
 export type MemberCardInfo = {
   id: string;
+  gameRole: string;
   firstName: string;
   lastName: string;
   position: string;
@@ -14,6 +15,7 @@ export type MemberCardInfo = {
 
 const MemberCard = ({
   id,
+  gameRole,
   firstName,
   lastName,
   position,
@@ -26,7 +28,7 @@ const MemberCard = ({
           size={50}
           src={image}
           icon={<UserOutlined />}
-          className={styles.avatar}
+          className={gameRole === 'member' ? styles.member : styles.observer}
         />
         <div className={styles.textContainer}>
           <Text className={styles.textName}>

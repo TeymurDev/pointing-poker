@@ -99,6 +99,7 @@ const MemberLobbyPage = () => {
           <List.Item className={styles.listItem}>
             <MemberCard
               id={item.id}
+              gameRole={item.gameRole}
               firstName={item.firstName}
               lastName={item.lastName}
               position={item.position}

@@ -8,6 +8,7 @@ const { Text } = Typography;
 
 const MemberCardMini = ({
   id,
+  gameRole,
   firstName,
   lastName,
   position,
@@ -20,7 +21,7 @@ const MemberCardMini = ({
           size='default'
           src={image}
           icon={<UserOutlined />}
-          className={styles.avatar}
+          className={gameRole === 'member' ? styles.member : styles.observer}
         />
         <div className={styles.textContainer}>
           <Text className={styles.textName}>

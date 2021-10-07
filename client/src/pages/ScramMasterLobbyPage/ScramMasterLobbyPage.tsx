@@ -140,6 +140,7 @@ const ScramMasterLobbyPage = ({
           <List.Item key={item.id} className={styles.listItem}>
             <MemberCard
               id={item.id}
+              gameRole={item.gameRole}
               firstName={item.firstName}
               lastName={item.lastName}
               position={item.position}

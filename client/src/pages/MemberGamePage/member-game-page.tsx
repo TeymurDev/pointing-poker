@@ -160,6 +160,7 @@ const MemberGamePage = ({
                 <List.Item key={item.id} className={styles.listItem}>
                   <MemberCardMini
                     id={item.id}
+                    gameRole={item.gameRole}
                     firstName={item.firstName}
                     lastName={item.lastName}
                     position={item.position}
