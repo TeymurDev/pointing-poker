@@ -30,7 +30,6 @@ const MainPage: FC = () => {
           </Space>
           <Space className={styles.inputContainer}>
             <Input id='connect' type='url' required />
-            {/* <Button type='primary'>Connect</Button> */}
             <ConnectModal />
           </Space>
         </Space>

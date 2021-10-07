@@ -24,10 +24,11 @@
   cursor: default;
 }
 
-.exitButtonContainer {
+.buttonContainer {
   width: 450px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  /* justify-content: flex-end; */
 }
 
 .exitButton {

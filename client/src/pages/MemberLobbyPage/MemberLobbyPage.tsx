@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { Space, Button, Typography, List, notification } from 'antd';
+import axios from 'axios';
 import styles from './MemberLobbyPage.module.css';
 
 import ScramMasterCard, {
@@ -12,30 +13,45 @@ import MemberCard, {
 
 const { Text } = Typography;
 
-type MemberLobbyPageProp = {
-  sessionName: string;
-  scramMasterInfo: ScramMasterCardInfo;
-  membersInfo: Array<MemberCardInfo>;
+type UsersInfo = {
+  master: ScramMasterCardInfo;
+  users: Array<MemberCardInfo>;
 };
 
-const MemberLobbyPage = ({
-  sessionName,
-  scramMasterInfo,
-  membersInfo,
-}: MemberLobbyPageProp) => {
+const MemberLobbyPage = () => {
+  const [users, setUsers] = useState<UsersInfo>();
+
   const history = useHistory();
+  const { roomId } = useParams<{ roomId: string }>();
 
   const handleClick = () => {
-    history.push('/teammembergame');
+    history.push(`/membergame/${roomId}`);
   };
+
+  const onExit = () => {
+    history.push(``);
+  };
+
   useEffect(() => {
     notification.info({
       message: 'Welcome to lobby!',
     });
-  });
+
+    axios
+      .get(`/rooms/${roomId}/users`)
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch(() => {
+        // handle error
+      });
+  }, []);
+
+  if (!users) return null;
+
   return (
     <Space direction='vertical' align='center' className={styles.container}>
-      <Text className={styles.sessionTitleText}>{sessionName}</Text>
+      <Text className={styles.sessionTitleText}>Lobby</Text>
 
       <Space
         direction='vertical'
@@ -43,19 +59,26 @@ const MemberLobbyPage = ({
         className={styles.scramMasterContainer}>
         <Text className={styles.scramMasterText}>Scram master</Text>
         <ScramMasterCard
-          id={scramMasterInfo.id}
-          firstName={scramMasterInfo.firstName}
-          lastName={scramMasterInfo.lastName}
-          position={scramMasterInfo.position}
-          image={scramMasterInfo.image}
+          id={users.master.id}
+          firstName={users.master.firstName}
+          lastName={users.master.lastName}
+          position={users.master.position}
+          image={users.master.image}
         />
       </Space>
 
-      <Space className={styles.exitButtonContainer}>
-        <button onClick={handleClick} type='button'>
-          PRESS ME
-        </button>
-        <Button type='primary' ghost className={styles.exitButton}>
+      <Space className={styles.buttonContainer}>
+        <Button
+          type='primary'
+          className={styles.exitButton}
+          onClick={handleClick}>
+          Game
+        </Button>
+        <Button
+          type='primary'
+          ghost
+          className={styles.exitButton}
+          onClick={onExit}>
           Exit
         </Button>
       </Space>
@@ -71,11 +94,12 @@ const MemberLobbyPage = ({
           xl: 3,
           xxl: 3,
         }}
-        dataSource={membersInfo}
+        dataSource={users.users}
         renderItem={(item) => (
           <List.Item className={styles.listItem}>
             <MemberCard
               id={item.id}
+              gameRole={item.gameRole}
               firstName={item.firstName}
               lastName={item.lastName}
               position={item.position}

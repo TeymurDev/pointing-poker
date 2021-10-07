@@ -1,7 +1,11 @@
 import io from 'socket.io-client';
 
-const port = 5000;
-const socket = io(`http://localhost:${port}`);
+const port = 8000;
+const serverEndpoint = `http://localhost:${port}`;
+
+export const socket = io(serverEndpoint, {
+  transports: ['websocket'],
+});
 
 const subscribeToConnection = () => {
   socket.on('connect', () => {

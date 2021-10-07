@@ -1,29 +1,37 @@
-const users = [];
+const { nanoid } = require('nanoid');
 
-// joins the user to the specific room
-function joinUser(id, firstName, lastName, position, image, roomId) {
-  const user = { id, firstName, lastName, position, image, roomId };
+const users = {};
 
-  users.push(user);
-  console.log(users, 'users');
+function createUser(gameRole, firstName, lastName, position, image) {
+  if (gameRole !== 'master') {
+    gameRole = gameRole ? 'member' : 'observer';
+  }
+
+  const user = {
+    id: nanoid(),
+    gameRole,
+    firstName,
+    lastName,
+    position,
+    image,
+  };
+
+  users[user.id] = user;
+  console.log(users);
 
   return user;
 }
 
 function getUserById(id) {
-  return users.find((user) => user.id === id);
+  return users[id];
 }
 
-function disconnectUser(id) {
-  const index = users.findIndex((user) => user.id === id);
-
-  if (index !== -1) {
-    return users.splice(index, 1)[0];
-  }
+function removeUser(id) {
+  delete users[id];
 }
 
 module.exports = {
-  joinUser: joinUser,
-  getUserById: getUserById,
-  disconnectUser: disconnectUser,
+  createUser,
+  getUserById,
+  removeUser,
 };

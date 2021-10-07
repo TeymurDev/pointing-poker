@@ -7,9 +7,9 @@ const { Text } = Typography;
 export type ScramMasterCardInfo = {
   id: string;
   firstName: string;
-  lastName: string;
-  position: string;
-  image: string;
+  lastName?: string;
+  position?: string;
+  image?: string;
 };
 
 const ScramMasterCard = ({
@@ -20,7 +20,7 @@ const ScramMasterCard = ({
   image,
 }: ScramMasterCardInfo) => {
   return (
-    <Space size={15} align='center' className={styles.container}>
+    <Space key={id} size={15} align='center' className={styles.container}>
       <Avatar
         size={50}
         src={image}
@@ -28,9 +28,8 @@ const ScramMasterCard = ({
         className={styles.avatar}
       />
       <div className={styles.textContainer}>
-        {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
         <Text className={styles.textName}>
-          {firstName} {lastName} {id}
+          {firstName} {lastName}
         </Text>
         <Text className={styles.textPost}>{position}</Text>
       </div>

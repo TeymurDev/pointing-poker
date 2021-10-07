@@ -8,24 +8,24 @@ const { Text } = Typography;
 
 const MemberCardMini = ({
   id,
+  gameRole,
   firstName,
   lastName,
   position,
   image,
 }: MemberCardInfo) => {
   return (
-    <Space align='center' className={styles.container}>
+    <Space key={id} align='center' className={styles.container}>
       <Space size={15} align='center'>
         <Avatar
           size='default'
           src={image}
           icon={<UserOutlined />}
-          className={styles.avatar}
+          className={gameRole === 'member' ? styles.member : styles.observer}
         />
         <div className={styles.textContainer}>
-          {/* <Text className={styles.textPertain}>It&apos;s you</Text> */}
           <Text className={styles.textName}>
-            {firstName} {lastName} {id}
+            {firstName} {lastName}
           </Text>
           <Text className={styles.textPost}>{position}</Text>
         </div>
