@@ -45,8 +45,8 @@ const settings = {
   autoCardsFlip: false,
   changeVoteAfterReveal: false,
   timerPresence: true,
-  timerMinutes: 60,
-  timerSeconds: 60,
+  timerMinutes: 1,
+  timerSeconds: 30,
 };
 
 const voteCards = [
