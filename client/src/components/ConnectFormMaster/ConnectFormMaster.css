@@ -1,0 +1,14 @@
+.avatar {
+  margin-top: 10px;
+  background-color: #70dade;
+}
+
+.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notVisible {
+  display: none;
+}

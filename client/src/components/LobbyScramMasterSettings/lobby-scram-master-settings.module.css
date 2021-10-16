@@ -1,0 +1,13 @@
+.container {
+  width: 450px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}
+
+.containerSetting {
+  width: 400px;
+  justify-content: space-between;
+}

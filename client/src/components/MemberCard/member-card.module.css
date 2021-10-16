@@ -1,0 +1,39 @@
+.container {
+  width: 300px;
+  height: 70px;
+  margin: 10px 0;
+  padding: 0 10px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}
+
+.member {
+  background: #69c0ff;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.textPertain {
+  font-size: x-small;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+
+.textName {
+  font-size: large;
+}
+
+.textPost {
+  font-size: x-small;
+  font-family: 'Nunito';
+}
+
+.deleteButton svg {
+  font-size: 22px;
+}

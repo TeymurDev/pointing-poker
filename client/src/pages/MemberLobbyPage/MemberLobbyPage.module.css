@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  margin: 10px 0;
+  gap: 10px !important;
+}
+
+.sessionTitleText {
+  font-size: x-large;
+  cursor: default;
+}
+
+.titleText {
+  font-size: large;
+  cursor: default;
+}
+
+.scramMasterContainer {
+  gap: 0 !important;
+}
+
+.scramMasterContainer .scramMasterText {
+  font-family: 'Nunito';
+  color: rgba(0, 0, 0, 0.65) !important;
+  cursor: default;
+}
+
+.buttonContainer {
+  width: 450px;
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: flex-end; */
+}
+
+.exitButton {
+  margin: 10px 0;
+}
+
+.listItem {
+  display: flex !important;
+  justify-content: center;
+}
+
+.list {
+  width: 330px;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    width: 660px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .list {
+    width: 990px;
+  }
+}

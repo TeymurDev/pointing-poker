@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  margin: 5% auto;
+}
+
+.mainContentContainer {
+  margin: 5% 2%;
+}
+
+.titleTextContainer {
+  width: 450px;
+  justify-content: center;
+}
+
+.connectContainer {
+  flex-wrap: wrap;
+}
+
+.inputContainer {
+  gap: 0 !important;
+}
+
+.logo {
+  width: 450px;
+  height: 125px;
+}
+
+.titleText {
+  font-size: 48px;
+  color: #40a9ff;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.text, .url {
+  font-family: 'Nunito';
+  font-size: 24px;
+}
+
+.url {
+  font-weight: 700;
+  color: #69c0ff;
+}
